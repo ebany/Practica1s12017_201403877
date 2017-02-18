@@ -9,6 +9,13 @@ package practica1s12017_201403877;
  *
  * @author CodigoG
  */
-public class Nodo {
+public class NodoListaCircularJugadores {
     
+    NodoListaCircularJugadores siguiente;
+    Object nombreJugador;
+    
+    public NodoListaCircularJugadores(Object nombreJugador){
+        this.nombreJugador = nombreJugador;
+        siguiente = null;
+    }
 }
