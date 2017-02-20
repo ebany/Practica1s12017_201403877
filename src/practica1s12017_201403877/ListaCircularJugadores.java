@@ -5,12 +5,14 @@
  */
 package practica1s12017_201403877;
 
+import java.io.*;
 /**
  *
  * @author CodigoG
  */
 public class ListaCircularJugadores {
     
+    Graphviz generar = new Graphviz();
     NodoListaCircularJugadores primero;
     NodoListaCircularJugadores ultimo;
     int tamaño = 0;
@@ -23,8 +25,8 @@ public class ListaCircularJugadores {
         return primero==null;
     }
     
-    public void agregar(Object nombre){
-        NodoListaCircularJugadores nuevo = new NodoListaCircularJugadores(nombre);
+    public void agregar(Object nombre, ListaManoJugador mano){
+        NodoListaCircularJugadores nuevo = new NodoListaCircularJugadores(nombre,mano);
         if (lista_vacia()){
             primero = ultimo = nuevo;
             ultimo.siguiente = primero;
@@ -54,13 +56,34 @@ public class ListaCircularJugadores {
     
     public void mostrar(){ // solo recorre de primero a ultimo ---- graficar el ultimo nodo ref a primero
         NodoListaCircularJugadores actual = primero;
+        
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+        try {
+            fichero = new FileWriter("txt\\CircularJugadores.txt");
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        pw = new PrintWriter(fichero);
+        pw.println("Digraph g{");
+        
         if (lista_vacia()){
             System.out.println("La lista de jugadores esta vacia.");
         }else{
             for (int i = 0; i < tamaño; i++) {
-                System.out.println(actual.nombreJugador);
+                pw.println(actual.nombreJugador +" -> " + actual.siguiente.nombreJugador);
+                //System.out.println(actual.nombreJugador);
                 actual = actual.siguiente;     
             }
+            pw.println("}");
+            if(null!= fichero ){
+                try {
+                    fichero.close();
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+            generar.generarGrafica("txt\\CircularJugadores.txt", "CircularJugadores");
         }
     }
 }

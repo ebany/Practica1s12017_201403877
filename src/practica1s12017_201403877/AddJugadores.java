@@ -12,6 +12,7 @@ package practica1s12017_201403877;
 public class AddJugadores extends javax.swing.JFrame {
 
     ListaCircularJugadores jugadores = new ListaCircularJugadores();
+    ColaLetras letras;
     /**
      * Creates new form AddJugadores
      */
@@ -125,16 +126,27 @@ public class AddJugadores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ListaManoJugador mano = new ListaManoJugador();
         
         if(jugadores.lista_vacia()){
-            jugadores.agregar(jTextField1.getText());
+            NodoCola nuevo = new NodoCola(jTextField1.getText(),0,0);
+            mano.agregar(nuevo);
+            for (int i = 0; i < 7; i++) {
+                mano.agregar(letras.sacar_inicio());
+            }
+            jugadores.agregar(jTextField1.getText(),mano);
             jLabel4.setText("Estado: Jugador " +jTextField1.getText() +" agregado con exito.");
             jTextField1.setText("");
         }else{
             if(jugadores.buscar(jTextField1.getText())== true){
                 jLabel4.setText("Estado: El nombre de usuario ya existe.");
             }else{
-                jugadores.agregar(jTextField1.getText());
+                NodoCola nuevo = new NodoCola(jTextField1.getText(),0,0);
+                mano.agregar(nuevo);
+                for (int i = 0; i < 7; i++) {
+                mano.agregar(letras.sacar_inicio());
+            }
+                jugadores.agregar(jTextField1.getText(),mano);
                 jLabel4.setText("Estado: Jugador " +jTextField1.getText() + " agregado con exito.");
                 jTextField1.setText("");
             }
@@ -143,6 +155,13 @@ public class AddJugadores extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         jugadores.mostrar();
+        // for para generar mano de cada jugador
+        NodoListaCircularJugadores actual =  jugadores.primero;
+        for (int i = 0; i < jugadores.tamaño; i++) {
+            actual.mano.Mostrar(actual.nombreJugador);
+            actual = actual.siguiente;
+        }
+        letras.mostrarElementos();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

@@ -13,9 +13,11 @@ public class NodoListaCircularJugadores {
     
     NodoListaCircularJugadores siguiente;
     Object nombreJugador;
+    ListaManoJugador mano;
     
-    public NodoListaCircularJugadores(Object nombreJugador){
+    public NodoListaCircularJugadores(Object nombreJugador, ListaManoJugador mano){
         this.nombreJugador = nombreJugador;
+        this.mano = mano;
         siguiente = null;
     }
 }

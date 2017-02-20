@@ -5,18 +5,22 @@
  */
 package practica1s12017_201403877;
 
-import java.io.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Random;
 /**
  *
  * @author CodigoG
  */
-public class ListaPalabraDiccionario {
+public class ListaManoJugador {
     
     Graphviz generar = new Graphviz();
-    NodoListaPalabraDiccionario primero;
-    NodoListaPalabraDiccionario ultimo;
+    // Nodos de una lista simple
+    NodoCola primero;
+    NodoCola ultimo;
     
-    public ListaPalabraDiccionario(){
+    public ListaManoJugador(){
         primero= ultimo = null;
     }
     
@@ -24,21 +28,26 @@ public class ListaPalabraDiccionario {
         return primero==null;
     }
     
-    public void agregarFinal(Object palabra){
+    public void agregar(NodoCola nuevo){
+        nuevo.siguiente = null;
         if (lista_vacia()== true){
-            primero =ultimo= new NodoListaPalabraDiccionario(palabra);
+            primero = ultimo = nuevo;
         }else{
-            ultimo = ultimo.siguiente = new NodoListaPalabraDiccionario(palabra);
+            ultimo = ultimo.siguiente = nuevo;
         }
     }
     
-    public void mostrarElementos(){
-        NodoListaPalabraDiccionario actual = primero;
+    // sacar letra 
+    
+    
+    
+    public void Mostrar(Object nombre){
+        NodoCola actual = primero;
         
         FileWriter fichero = null;
         PrintWriter pw = null;
         try {
-            fichero = new FileWriter("txt\\ListaPalabras.txt");
+            fichero = new FileWriter("txt\\ListaMano"+nombre+".txt");
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
@@ -50,7 +59,7 @@ public class ListaPalabraDiccionario {
         }else{
             while(actual!=null){
                 if(actual.siguiente != null){
-                    pw.println(actual.palabra +" -> " + actual.siguiente.palabra);
+                    pw.println(actual.letra +""+actual.numero+" -> " + actual.siguiente.letra+""+actual.siguiente.numero);
                 }  
                 //System.out.println(actual.palabra);
                 actual = actual.siguiente;
@@ -63,7 +72,8 @@ public class ListaPalabraDiccionario {
                     System.out.println(ex.getMessage());
                 }
             }
-            generar.generarGrafica("txt\\ListaPalabras.txt", "ListaPalabras");
+            generar.generarGrafica("txt\\ListaMano"+nombre+".txt", "ListaMano"+nombre);
         }
     }
+    
 }

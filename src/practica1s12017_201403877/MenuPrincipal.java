@@ -20,6 +20,9 @@ import java.util.concurrent.ThreadLocalRandom;
 public class MenuPrincipal extends javax.swing.JFrame {
 
     ListaPalabraDiccionario palabras = new ListaPalabraDiccionario();
+    ColaLetras letras =  new ColaLetras();
+    int contador = 0;
+    Graphviz generar = new Graphviz();
     int a = 12;
     int b = 2;
     int c = 4;
@@ -55,7 +58,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         initComponents();
-        jButton2.setEnabled(false);        
+        jButton2.setEnabled(false);  
+        while(a>0 || (b>0 || (c>0 || (d>0 || (e>0 || (f>0 || (g>0 || (h>0 || (i>0 || (j>0 || (l>0 || (m>0 || 
+                (n>0 || (ñ>0 || (o>0 || (p>0 || (q>0 || (r>0 || (s>0 || (t>0 || (u>0 || (v>0 || (x>0 || (y>0 || z>0) ))))))))))))))))))))))){
+            añadirCola();
+        }
+        letras.mostrarElementos();
     }
 
     /**
@@ -117,6 +125,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         SAXBuilder builder = new SAXBuilder();
         jFileChooser1.showOpenDialog(this);
         //File xmlFile = new File("C:\\Users\\CodigoG\\Desktop\\prueba.xml");
@@ -152,7 +161,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 }
                 if (node.getName() == "diccionario"){
                     List listTemp = node.getChildren();
-                    System.out.println("Palabras:");
+                    //System.out.println("Palabras:");
                     for (int j = 0; j < listTemp.size(); j++) {
                         Element node11 = (Element)listTemp.get(j);
                         palabras.agregarFinal(node11.getValue().toLowerCase());
@@ -171,10 +180,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        /*AddJugadores añadir = new AddJugadores();
+        AddJugadores añadir = new AddJugadores();
+        añadir.letras = letras;
         añadir.setVisible(true);
-        this.setVisible(false);*/
-        
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -213,66 +222,184 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
     }
 
-    protected void añadirCola(){
-        int numeroAscii = ThreadLocalRandom.current().nextInt(65, 90);
-        System.out.printf("%c",numeroAscii);
-        
+    public void añadirCola(){
+        int numeroAscii = ThreadLocalRandom.current().nextInt(65, 91);
+        //System.out.printf("%c",numeroAscii);        
         switch (numeroAscii){
             case 'A':
-                if (a>0){
-                    //Nodo.letra = A
-                    //Nodo.valor = 1
-                    // a--;
+                if (a>0){                   
+                    letras.agregar_final("A",1,a);
+                    a--;
+                    contador++;
                 }
                 break;
             case 'B':
+                if (b>0){
+                    letras.agregar_final("B",3,b);
+                    b--;
+                    contador++;
+                }
                 break;
             case 'C':
+                if (c>0){
+                    letras.agregar_final("C",3,c);
+                    c--;
+                    contador++;
+                }
                 break;
             case 'D':
+                if (d>0){
+                    letras.agregar_final("D",2,d);
+                    d--;
+                    contador++;
+                }
                 break;
             case 'E':
+                if (e>0){
+                    letras.agregar_final("E",1,e);
+                    e--;
+                    contador++;
+                }
                 break;
             case 'F':
+                if (f>0){
+                    letras.agregar_final("F",4,f);
+                    f--;
+                    contador++;
+                }
                 break;
             case 'G':
+                if (g>0){
+                    letras.agregar_final("G",2,g);
+                    g--;
+                    contador++;
+                }
                 break;
             case 'H':
+                if (h>0){
+                    letras.agregar_final("H",4,h);
+                    h--;
+                    contador++;
+                }
                 break;
             case 'I':
+                if (i>0){
+                    letras.agregar_final("I",1,i);
+                    i--;
+                    contador++;
+                }
                 break;
             case 'J':
+                if (j>0){
+                    letras.agregar_final("J",8,j);
+                    j--;
+                    contador++;
+                }
                 break;
             case 'L':
+                if (l>0){
+                    letras.agregar_final("L",1,l);
+                    l--;
+                    contador++;
+                }
                 break;
             case 'M':
+                if (m>0){
+                    letras.agregar_final("M",3,m);
+                    m--;
+                    contador++;
+                }
                 break;
             case 'N':
+                if (n>0){
+                    letras.agregar_final("N",1,n);
+                    n--;
+                    contador++;
+                }
                 break;
             case 'O':
+                if (o>0){
+                    letras.agregar_final("O",1,o);
+                    o--;
+                    contador++;
+                }
                 break;
             case 'P':
+                if (p>0){
+                    letras.agregar_final("P",3,p);
+                    p--;
+                    contador++;
+                }
                 break;
             case 'Q':
+                if (q>0){
+                    letras.agregar_final("Q",5,q);
+                    q--;
+                    contador++;
+                }
                 break;
             case 'R':
+                if (r>0){
+                    letras.agregar_final("R",1,r);
+                    r--;
+                    contador++;
+                }
                 break;
             case 'S':
+                if (s>0){
+                    letras.agregar_final("S",1,s);
+                    s--;
+                    contador++;
+                }
                 break;
             case 'T':
+                if (t>0){
+                    letras.agregar_final("T",1,t);
+                    t--;
+                    contador++;
+                }
                 break;
             case 'U':
+                if (u>0){
+                    letras.agregar_final("U",1,u);
+                    u--;
+                    contador++;
+                }
                 break;
             case 'V':
+                if (v>0){
+                    letras.agregar_final("V",4,v);
+                    v--;                   
+                    contador++;
+                }
                 break;
             case 'X':
+                if (x>0){
+                    letras.agregar_final("X",8,x);
+                    x--;
+                    contador++;
+                }
                 break;
             case 'Y':
+                if (y>0){
+                    letras.agregar_final("Y",4,y);
+                    y--;
+                    contador++;
+                }
                 break;
             case 'Z':
+                if (z>0){
+                    letras.agregar_final("Z",10,z);
+                    z--;
+                    contador++;
+                }
                 break;
             default:
-                
+                if (ñ>0){
+                    letras.agregar_final("Ñ",8,ñ);
+                    ñ--;
+                    contador++;
+                }
         } 
     } 
     

@@ -1,0 +1,9 @@
+Digraph g{
+jorge0 -> R4
+R4 -> B2
+B2 -> H2
+H2 -> B1
+B1 -> A10
+A10 -> D5
+D5 -> N5
+}
