@@ -63,7 +63,7 @@ public class ColaLetras {
         }
         pw = new PrintWriter(fichero);
         pw.println("Digraph g{");
-        
+        pw.println("graph[dpi = 300];");
         if (cola_vacia()) {
             System.out.println("Cola de letras vacia.");
         }else{

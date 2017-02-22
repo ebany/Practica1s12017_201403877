@@ -5,6 +5,9 @@
  */
 package practica1s12017_201403877;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author CodigoG
@@ -13,6 +16,9 @@ public class AddJugadores extends javax.swing.JFrame {
 
     ListaCircularJugadores jugadores = new ListaCircularJugadores();
     ColaLetras letras;
+    
+    ListaPalabraDiccionario palabras;
+    MatrizOrtogonal matriz;
     /**
      * Creates new form AddJugadores
      */
@@ -129,8 +135,8 @@ public class AddJugadores extends javax.swing.JFrame {
         ListaManoJugador mano = new ListaManoJugador();
         
         if(jugadores.lista_vacia()){
-            //NodoCola nuevo = new NodoCola(jTextField1.getText(),0,0);
-            //mano.agregar(nuevo);
+            NodoCola nuevo = new NodoCola(jTextField1.getText(),0,0);
+            mano.agregar(nuevo);
             for (int i = 0; i < 7; i++) {
                 mano.agregar(letras.sacar_inicio());
             }
@@ -141,8 +147,8 @@ public class AddJugadores extends javax.swing.JFrame {
             if(jugadores.buscar(jTextField1.getText())== true){
                 jLabel4.setText("Estado: El nombre de usuario ya existe.");
             }else{
-                //NodoCola nuevo = new NodoCola(jTextField1.getText(),0,0);
-                //mano.agregar(nuevo);
+                NodoCola nuevo = new NodoCola(jTextField1.getText(),0,0);
+                mano.agregar(nuevo);
                 for (int i = 0; i < 7; i++) {
                 mano.agregar(letras.sacar_inicio());
             }
@@ -162,7 +168,16 @@ public class AddJugadores extends javax.swing.JFrame {
             actual = actual.siguiente;
         }
         letras.mostrarElementos();
-        JuegoPrincipal principalJ = new JuegoPrincipal();
+        JuegoPrincipal principalJ = new JuegoPrincipal(jugadores,palabras);
+        //principalJ.jugadores = jugadores;
+        principalJ.letras = letras;
+        //principalJ.palabras = palabras;
+        principalJ.matriz = matriz;
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException ex) {
+            System.out.println(ex.getMessage());
+        }
         principalJ.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed

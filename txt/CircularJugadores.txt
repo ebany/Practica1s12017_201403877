@@ -1,0 +1,7 @@
+Digraph g{
+graph[dpi = 300];
+kj -> kjk
+kjk -> lll
+lll -> nnnn
+nnnn -> kj
+}

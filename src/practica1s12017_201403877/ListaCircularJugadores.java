@@ -66,7 +66,7 @@ public class ListaCircularJugadores {
         }
         pw = new PrintWriter(fichero);
         pw.println("Digraph g{");
-        
+        pw.println("graph[dpi = 300];");
         if (lista_vacia()){
             System.out.println("La lista de jugadores esta vacia.");
         }else{

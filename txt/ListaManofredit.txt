@@ -1,0 +1,10 @@
+Digraph g{
+graph[dpi = 300];
+fredit0 -> Q1
+Q1 -> R4
+R4 -> B1
+B1 -> I6
+I6 -> Ñ1
+Ñ1 -> O9
+O9 -> T4
+}

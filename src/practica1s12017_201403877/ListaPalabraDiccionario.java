@@ -44,7 +44,7 @@ public class ListaPalabraDiccionario {
         }
         pw = new PrintWriter(fichero);
         pw.println("Digraph g{");
-        
+        pw.println("graph[dpi = 300];");
         if (lista_vacia()){
             System.out.println("Lista vacia.");
         }else{

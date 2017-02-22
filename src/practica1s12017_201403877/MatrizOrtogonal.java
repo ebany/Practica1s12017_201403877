@@ -101,7 +101,7 @@ public class MatrizOrtogonal {
         pw = new PrintWriter(fichero);
         pw.println("Digraph g{");
         //pw.println("rankdir=LR;");
-        pw.println("graph[center=1 ,rankdir=LR];");
+        pw.println("graph[center=1 ,rankdir=LR, dpi = 300];");
         //pw.println("node[style=filled];");
         for (int j = 0; j < tamaño; j++) {
             actual = actualFila;

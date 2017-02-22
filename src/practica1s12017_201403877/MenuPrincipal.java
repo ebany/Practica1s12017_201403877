@@ -191,6 +191,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         AddJugadores añadir = new AddJugadores();
         añadir.letras = letras;
+        añadir.palabras = palabras;
+        añadir.matriz = matriz;
         añadir.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
