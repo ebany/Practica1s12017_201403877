@@ -379,22 +379,7 @@ public class JuegoPrincipal extends javax.swing.JFrame {
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         palabras.agregarFinal(jTextField1.getText());
         palabras.mostrarElementos();
-        //ImageIcon imagen = new ImageIcon("txt\\ListaPalabras.png");
-        //ImageIcon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_SMOOTH));
-        /*
-        Thread hilo = new Thread(){
-            public void run(){
-                try {
-                    Thread.sleep(4000);
-                    
-                    jLabel2.setIcon(icono);
-                } catch (InterruptedException ex) {
-                    System.out.println(ex.getMessage());
-                }
-            }
-        };
-        hilo.start();*/
-        //jLabel2.getParent().layout();
+        
     }//GEN-LAST:event_jButton16ActionPerformed
 
     /**

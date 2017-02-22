@@ -171,7 +171,6 @@ public class AddJugadores extends javax.swing.JFrame {
         JuegoPrincipal principalJ = new JuegoPrincipal(jugadores,palabras);
         //principalJ.jugadores = jugadores;
         principalJ.letras = letras;
-        //principalJ.palabras = palabras;
         principalJ.matriz = matriz;
         try {
             Thread.sleep(3000);
