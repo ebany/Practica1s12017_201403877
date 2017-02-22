@@ -129,8 +129,8 @@ public class AddJugadores extends javax.swing.JFrame {
         ListaManoJugador mano = new ListaManoJugador();
         
         if(jugadores.lista_vacia()){
-            NodoCola nuevo = new NodoCola(jTextField1.getText(),0,0);
-            mano.agregar(nuevo);
+            //NodoCola nuevo = new NodoCola(jTextField1.getText(),0,0);
+            //mano.agregar(nuevo);
             for (int i = 0; i < 7; i++) {
                 mano.agregar(letras.sacar_inicio());
             }
@@ -141,8 +141,8 @@ public class AddJugadores extends javax.swing.JFrame {
             if(jugadores.buscar(jTextField1.getText())== true){
                 jLabel4.setText("Estado: El nombre de usuario ya existe.");
             }else{
-                NodoCola nuevo = new NodoCola(jTextField1.getText(),0,0);
-                mano.agregar(nuevo);
+                //NodoCola nuevo = new NodoCola(jTextField1.getText(),0,0);
+                //mano.agregar(nuevo);
                 for (int i = 0; i < 7; i++) {
                 mano.agregar(letras.sacar_inicio());
             }
@@ -162,6 +162,9 @@ public class AddJugadores extends javax.swing.JFrame {
             actual = actual.siguiente;
         }
         letras.mostrarElementos();
+        JuegoPrincipal principalJ = new JuegoPrincipal();
+        principalJ.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

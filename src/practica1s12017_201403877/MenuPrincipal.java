@@ -21,7 +21,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     ListaPalabraDiccionario palabras = new ListaPalabraDiccionario();
     ColaLetras letras =  new ColaLetras();
+    MatrizOrtogonal matriz = new MatrizOrtogonal();
     int contador = 0;
+    int tamañoMatriz = 0;
     Graphviz generar = new Graphviz();
     int a = 12;
     int b = 2;
@@ -139,22 +141,28 @@ public class MenuPrincipal extends javax.swing.JFrame {
             for (int i = 0; i < list.size(); i++) {
                 Element node = (Element)list.get(i);
                 if (node.getName() == "dimension"){
+                    tamañoMatriz = Integer.parseInt(node.getValue());
+                    matriz.CrearMAtriz(tamañoMatriz);
+                    matriz.MostrarMatriz(tamañoMatriz);
+                    //tamañoMatriz = Integer.parseInt(node.getValue());
                     //System.out.println("Dimension: " + node.getValue());
                 }
                 if (node.getName() == "dobles"){
                     List listTemp = node.getChildren();
-                    System.out.println("Dobles:");
+                    //System.out.println("Dobles:");
                     for (int j = 0; j < listTemp.size(); j++) {
-                        Element node11 = (Element)listTemp.get(j);                        
+                        Element node11 = (Element)listTemp.get(j);   
+                        matriz.agregarDoble(Integer.parseInt(node11.getChildText("x")), Integer.parseInt(node11.getChildText("y")));
                         /*System.out.println("Valor x: " + node11.getChildText("x"));
                         System.out.println("Valor y: " + node11.getChildText("y"));*/
                     }
                 }        
                 if (node.getName() == "triples"){
                     List listTemp = node.getChildren();
-                    System.out.println("Triples:");
+                    //System.out.println("Triples:");
                     for (int j = 0; j < listTemp.size(); j++) {
-                        Element node11 = (Element)listTemp.get(j);                        
+                        Element node11 = (Element)listTemp.get(j);
+                        matriz.agregarTriple(Integer.parseInt(node11.getChildText("x")), Integer.parseInt(node11.getChildText("y")));
                         /*System.out.println("Valor x: " + node11.getChildText("x"));
                         System.out.println("Valor y: " + node11.getChildText("y"));*/
                     }
@@ -170,6 +178,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 }
             }
             jButton2.setEnabled(true);
+            matriz.MostrarMatriz(tamañoMatriz);
             palabras.mostrarElementos();
         }
         catch(IOException io){
@@ -222,6 +231,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
     }
 
+    public void crearMatriz(){
+        for (int k = 0; k < 10; k++) {
+            
+        }
+    }
+    
     public void añadirCola(){
         int numeroAscii = ThreadLocalRandom.current().nextInt(65, 91);
         //System.out.printf("%c",numeroAscii);        

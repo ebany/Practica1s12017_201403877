@@ -1,5 +1,0 @@
-Digraph g{
-aldo -> ebany
-ebany -> jorge
-jorge -> aldo
-}

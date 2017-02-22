@@ -20,26 +20,28 @@ public class NodoMatriz {
     Object fila;
     Object columna;
     
+    /*
     public NodoMatriz(){
         tipoPto = "simple";
         dato = null;
         abajo = arriba = izquierda = derecha = null;
-    }
+    }*/
     
     public NodoMatriz(Object fila, Object columna){
+        //System.out.println(fila+","+columna);
         this.fila = fila;
         this.columna = columna;
         tipoPto = "simple";
         dato = null;
         abajo = arriba = izquierda = derecha = null;
     }
-    
+    /*
     public NodoMatriz(Object tipoPto, Object fila, Object columna){
         this.fila = fila;
         this.columna = columna;
         this.tipoPto = tipoPto;
         dato = null;
         abajo = arriba = izquierda = derecha = null;
-    }
+    }*/
     
 }
